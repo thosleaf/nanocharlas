@@ -1,0 +1,28 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "nanocharlas criptography nodejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.bundle.js",
+    "build": "webpack",
+    "dev": "nodemon ./server.js localhost 3080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thosleaf/nanocharlas.git"
+  },
+  "author": "Bhargav Bachina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thosleaf/nanocharlas/issues"
+  },
+  "homepage": "https://github.com/thosleaf/nanocharlas#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
