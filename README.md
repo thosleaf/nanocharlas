@@ -16,6 +16,10 @@ Pequeñas demostraciones del uso de la criptografía usando nodeJS y Vue
 Este es un ejemplo de uso de la criptografía de clave asimétrica, en el que cedemos a github nuestra clave pública para que pueda "confiar" en que aquellas conexiones hechas con ssh provienen de nosotras.
 https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
+Este también es muy interesante:
+https://www.section.io/engineering-education/using-multiple-ssh-keys-for-multiple-github-accounts/
+
+
 ### server
 
 Despliegue de los recursos API a explotar.
@@ -49,3 +53,4 @@ npm scripts: Qué son y cómo se utilizan?
 
 https://frontendguruji.com/blog/how-to-setup-a-vue-js-project-from-scratch-without-vue-cli/
 installing and setting up Vue3 from scratch
+(prestad atención a los ficheros del repo para entender completamente los cambios, algunos son distintos del tutorial)
