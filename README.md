@@ -11,6 +11,11 @@ Las pruebas se han efectuado utilizando:
 
 Pequeñas demostraciones del uso de la criptografía usando nodeJS y Vue
 
+### certificado ssh para github 
+
+Este es un ejemplo de uso de la criptografía de clave asimétrica, en el que cedemos a github nuestra clave pública para que pueda "confiar" en que aquellas conexiones hechas con ssh provienen de nosotras.
+https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 ### server
 
 Despliegue de los recursos API a explotar.
