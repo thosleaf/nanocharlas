@@ -1,59 +1,63 @@
 .container{
-    z-index:0;
-    position:fixed;
-    left: 0;
-    top: 0;
-    padding: 0;
-    border: 0;
+    margin:0;
+    padding:0;
     width:100%;
+    height:720px;
     color:#000;
-    background-color: transparent;
+    background-color: #eee;
     font-family: sans-serif;
 }
 .pageContainer{
-    z-index: 1;
-    position: relative;
-    left: 0;
-    top: 0;
-    padding: 0;
-    border: 0;
-    height:99%;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction: column;
     color:#000;
     background-color:#ccc;
-    border: solid 1px red;
+    border: solid 1px black;
 }
 .pageHeader {
-    z-index: 2;
-    position: relative;
-    height: 170px;
+    margin:0;
+    padding:0;
+    height: 166px;
     color: #fff;
     background-color: #000;
-    text-align: center;
+    border: solid 1px black;
     font-size: 24px;
+    text-align: center;
     vertical-align:middle;
 }
-.pageContent {
-    z-index: 4;
-    position: relative;
+.pageBody {
+    flex-grow: 1;
+    height:540px;
     color: #000;
-    background-color: #ccc;
+    background-color: transparent;
     text-align: center;
     font-size: 17px;
-    min-height:500px;
+}
+.pageMenu{
+    float:left;
+    width:171px;
+    height:100%;
+    background-color:#fff;
+    border: solid 1px black;
+}
+.pageContent{
+    left:173px;
+    height:100%;
+    background-color:#fff;
+    border: solid 1px white;
 }
 .pageFooter {
-    z-index: 3;
-    position: relative;
-    bottom:0;
-    height: 20px;
+    margin:0;
+    padding:0;
+    height:16px;
     color: #fff;
     background-color: #000;
     text-align: right;
-    vertical-align:middle;
     font-size: 12px;
 }
 .header_img {
-    z-index: -1;
     float: left;
     vertical-align:middle;
 }
@@ -70,4 +74,10 @@
 .index_bulletpoint{
     text-align:left;
     font-size: 20px;
+    font-weight:bold;
+}
+.index_bulletpoint_hover{
+    text-align:left;
+    font-size: 20px;
+    font-weight:bold;
 }
