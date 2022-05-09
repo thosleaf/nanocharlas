@@ -7,7 +7,7 @@
     background-color: #eee;
     font-family: sans-serif;
 }
-.pageContainer{
+.page-container{
     margin:0;
     padding:0;
     display:flex;
@@ -16,7 +16,7 @@
     background-color:#ccc;
     border: solid 1px black;
 }
-.pageHeader {
+.page-header {
     margin:0;
     padding:0;
     height: 166px;
@@ -27,7 +27,7 @@
     text-align: center;
     vertical-align:middle;
 }
-.pageBody {
+.page-body {
     flex-grow: 1;
     height:540px;
     color: #000;
@@ -35,20 +35,20 @@
     text-align: center;
     font-size: 17px;
 }
-.pageMenu{
+.page-menu{
     float:left;
     width:171px;
     height:100%;
     background-color:#fff;
     border: solid 1px black;
 }
-.pageContent{
+.page-content{
     left:173px;
     height:100%;
     background-color:#fff;
     border: solid 1px white;
 }
-.pageFooter {
+.page-footer {
     margin:0;
     padding:0;
     height:16px;
@@ -56,28 +56,4 @@
     background-color: #000;
     text-align: right;
     font-size: 12px;
-}
-.header_img {
-    float: left;
-    vertical-align:middle;
-}
-.nanocharlas_title{
-    font-size: 36px;
-}
-.nanocharlas_introduction{
-    font-size: 20px;
-}
-.nanocharlas_description{
-    text-align:left;
-    font-size: 18px;
-}
-.index_bulletpoint{
-    text-align:left;
-    font-size: 20px;
-    font-weight:bold;
-}
-.index_bulletpoint_hover{
-    text-align:left;
-    font-size: 20px;
-    font-weight:bold;
 }
