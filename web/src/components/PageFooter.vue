@@ -35,5 +35,5 @@ export default {
     </div>
 </template>
 <style scoped>
-@import "../menu.scss";
+@import "../pageFooter.scss";
 </style>

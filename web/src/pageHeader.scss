@@ -1,14 +1,19 @@
+.page-header {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    height: 15px;
+    color: #fff;
+    background-color: #000;
+    border: solid 1px black;
+    font-size:medium;
+    text-align: center;
+    vertical-align:middle;
+}
 .header-img {
     float: left;
     vertical-align:middle;
 }
-.nanocharlas-title{
-    font-size: 36px;
-}
-.nanocharlas-introduction{
-    font-size: 20px;
-}
-.nanocharlas-description{
-    text-align:left;
-    font-size: 18px;
+.header-title{
+    font-size: xx-large;
 }

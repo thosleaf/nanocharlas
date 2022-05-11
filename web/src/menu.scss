@@ -1,12 +1,20 @@
+.page-menu{
+    float:left;
+    width:171px;
+    height:100%;
+    overflow:hidden;
+    color:#000;
+    background-color:#fff;
+    border: solid 1px #000;
+    font-size: medium;
+}
 .index-bulletpoint{
     text-align:left;
-    font-size: 20px;
     font-weight:bold;
 }
 .index-bulletpoint-hover{
-    text-align:left;
-    font-size: 20px;
-    font-weight:bold;
-    background-color:#000;
     color:#fff;
+    background-color:#000;
+    text-align:left;
+    font-weight:bold;
 }

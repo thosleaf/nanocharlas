@@ -1,49 +1,53 @@
 // src/components/MenuDisplay.vue
 <script>
 export default {
+    name: "App",
+    props: {
+        buttonsArray: {
+            type: Array,
+            required: true,
+            default: () => [0,'no_key','no text',false]
+        }
+    },
     data() {
         return {
-            selectedBullet: 0,
-            bulletpoints: [
-                {id:1, bullet:'Introducción', active:false},
-                {id:2, bullet:'HASH', active:false},
-                {id:3, bullet:'Verificación', active:false},
-                {id:4, bullet:'Autenticación', active:false},
-                {id:5, bullet:'Merkle', active:false},
-                ],
-        };
+            selected: "seleccione:",
+            selectedBullet: -1,
+            key:''
+        }
     },
     methods: {
         menuOption(option){
-            this.practise = this.bulletpoints[option-1].bullet;
+            this.selected = this.buttonsArray[option].bullet;
+            this.selectedBullet=option;
+            this.$emit('button-click',this.selectedBullet);
         },
         selectBullet(option){
-            console.log(`This is hover bullet data BEFORE Activation: ${this.bulletpoints[option-1].id}, bullet: "${this.bulletpoints[option-1].bullet}" and it is ${this.bulletpoints[option-1].active}`);
             this.selectedBullet=option;
-            this.bulletpoints[option-1].active=true;
-            console.log(`This is hover bullet data AFTER Activation: ${this.bulletpoints[option-1].id}, bullet: "${this.bulletpoints[option-1].bullet}" and it is ${this.bulletpoints[option-1].active}`);
+            this.buttonsArray[option].active=true;
         },
         unselectBullet(option){
-            console.log(`This is hover bullet data BEFORE de-activation: ${this.bulletpoints[option-1].id}, bullet: "${this.bulletpoints[option-1].bullet}" and it is ${this.bulletpoints[option-1].active}`);
-            this.selectedBullet=option;
-            this.bulletpoints[option-1].active=false;
-            console.log(`This is hover bullet data AFTER de-activation: ${this.bulletpoints[option-1].id}, bullet: "${this.bulletpoints[option-1].bullet}" and it is ${this.bulletpoints[option-1].active}`);
+            this.selectedBullet=-1;
+            this.buttonsArray[option].active=false;
         },
         isActive(option){
             return this.selectedBullet==option;
         }
     },
-    computed: {
-
-    }
+    components: {}
 }
 </script>
 <template>
     <div class="page-menu">
-        Ejemplos:
-        <ol>
-            <li :class="{'index-bulletpoint-hover': isActive(bulletpoint.id), 'index-bulletpoint': !isActive(bulletpoint.id)}" v-for='bulletpoint in bulletpoints' :key="bulletpoint.id" @mouseover="selectBullet(bulletpoint.id)" @mouseout="updateMenu(bulletpoint.id)" v-on:click="menuOption(bulletpoint.id)">{{ bulletpoint.bullet }}</li>
-        </ol>
+        {{ selected }}
+        <ul>
+            <li v-for='button in this.buttonsArray' :key="button.id"
+                :class="{'index-bulletpoint-hover': isActive(button.id), 'index-bulletpoint': !isActive(button.id)}"
+                @mouseover="selectBullet(button.id)"
+                @mouseout="unselectBullet(button.id)"
+                v-on:click="menuOption(button.id)">{{ button.text }}
+            </li>
+        </ul>
     </div>
 </template>
 <style scoped>

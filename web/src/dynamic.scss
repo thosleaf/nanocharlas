@@ -1,0 +1,16 @@
+.section-container{
+    background-color:#ddd;
+}
+.section-container-disabled{
+    background-color:red;
+    border:solid 1px red;
+    visibility:'hidden';
+    display:none;
+}
+.form-header{
+    font-size:larger;
+}
+.form-controls{
+    margin:auto;
+    border:dashed 1px black;
+}

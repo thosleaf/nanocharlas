@@ -1,4 +1,9 @@
 <script>
+import intro from './intro.vue';
+import hash from './hash.vue';
+import verify from './verify.vue';
+import authenticate from './authenticate.vue';
+import merkle from './merkle.vue';
 export default {
     name: "App",
     props: {
@@ -14,31 +19,38 @@ export default {
     data() {
         return {
             practise: "Contenido de las nanoCharlas :)",
-            key:''
+            sections: ['intro','hash','verify','authenticate','merkle'],
+            currentComponent: "intro",
         }
     },
     methods: {
         pageContentText() {
             if ((this.optionPassed != null) && (this.optionPassed >= 0)) {
-                return this.optionsArray[this.optionPassed].bullet
+                return this.optionsArray[this.optionPassed].text
             }else{
                 return this.practise
             }
         },
-        isActive(option){
-            return this.optionPassed==option;
+        isActive(){
+            if ((this.optionPassed != null) && (this.optionPassed >= 0)) {
+                return this.optionsArray[this.optionPassed].bullet
+            }
+            return 'intro';
         }
     },
-    components: {}
+    components: {
+        intro,
+        hash,
+        verify,
+        authenticate,
+        merkle
+    }
 };
 </script>
 <template>
     <div class="page-content">
         <div class="section-header">Visualizando: <span class="section-header">{{ pageContentText() }}</span></div>
-        <div v-for='element in this.optionsArray' :key="element.id"
-        :class="{'section-container': isActive(element.id), 'section-container section-container-disabled': !isActive(element.id)}" >
-            {{ element.bullet }}
-        </div>
+        <component :class="section-container" :is="isActive()" :optionsArray="this.optionsArray" :optionPassed="this.optionPassed" />
     </div>
 </template>
 <style scoped>
