@@ -1,4 +1,5 @@
 <script>
+import * as myJwt from '../services/jwt.js'
 export default {
     name: "App",
     props: {
@@ -27,6 +28,19 @@ export default {
         }
     },
     methods: {
+        decodeToken(){
+            this.hashedText = JSON.stringify(myJwt.parseJwt(this.textToHash))
+        },
+        requestJWT(){
+            var myResponse={
+                event:'hash',
+                seed:this.hashKey,
+                text:this.textToHash
+            }
+            //var result = jwtHash(myResponse);
+            //console.log(`response generated: ${JSON.stringify(myResponse)}\r\nand jwt response: ${result}`);
+            this.$emit('jwt-click',myResponse);
+        },
         pageContentText() {
             if ((this.optionPassed != null) && (this.optionPassed >= 0)) {
                 return this.optionsArray[this.optionPassed].text
@@ -57,7 +71,9 @@ export default {
                     <label for="hashedText">texto&nbsp;resumido</label>
                 </div>
                 <div class="form-controls">
-                    <input form="hash-form" type="submit" value="resumir">
+                    <input form="hash-form" type="submit" value="expandir" v-on:click="decodeToken()">
+                    <input form="hash-form" type="submit" value="resumir" v-on:click="requestJWT()">
+                    <input form="hash-form" type="submit" value="validar" v-on:click="requestJWT()">
                 </div>
             </form>
         </div>
