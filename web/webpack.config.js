@@ -4,7 +4,6 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
-//const webpack = require("webpack");
 
 // module
 module.exports = {
@@ -62,7 +61,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template:"./src/index.html",
-        })
+        }),
     ],
     optimization: {
         splitChunks: {

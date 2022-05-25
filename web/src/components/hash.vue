@@ -15,21 +15,22 @@ export default {
     data() {
         return {
             randomText: 'Probando el algoritmo de hashing...',
-            hashKey: '1234fwef wwe w',
-            textToHash: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-                        Suspendisse convallis, quam id porta lobortis, enim sem blandit nibh, \
-                        sed rhoncus leo mauris ut elit. Pellentesque erat purus, lacinia ut \
-                        iaculis accumsan, semper eget neque. Cras libero ligula, suscipit sit \
-                        amet dolor quis, tincidunt finibus leo. Etiam eleifend hendrerit viverra. \
-                        Suspendisse in justo in diam efficitur imperdiet quis non leo. In viverra \
-                        risus elit, nec vehicula ligula semper sed. Ut semper ipsum vitae mauris \
-                        placerat fermentum.',
-            hashedText:''
+            hashKey: 'REPLACE-WITH-YOUR-SEED-PHRASE',
+            textToHash: 'PASTE-YOUR-JWT-TOKEN',
+            hashedText:'',
+            header:'',
+            signature: '',
+            calculated_signature:''
         }
     },
     methods: {
         decodeToken(){
-            this.hashedText = JSON.stringify(myJwt.parseJwt(this.textToHash))
+            this.header = myJwt.parseJwtHeader(this.textToHash);
+            this.hashedText = myJwt.parseJwtBody(this.textToHash);
+            this.signature= myJwt.extractSignature(this.textToHash);
+        },
+        encodeToken(){
+            
         },
         requestJWT(){
             var myResponse={
@@ -54,30 +55,33 @@ export default {
 </script>
 <template>
     <div class="section-container">
-        <span class="section-text">{{ pageContentText() }}
-        <p class="section-text">funci&oacute;n&nbsp;hash.</p>
         <div class="section-container">
             <form name="hash-form">
                 <div class="form-controls">
-                    <input id="hashKey" form="hash-form" type="text" v-model="hashKey" style="width:600px;">
                     <label for="hashKey">palabra&nbsp;semilla</label>
+                    <input id="hashKey" form="hash-form" type="text" v-model="hashKey" style="width:600px;">
                 </div>
                 <div class="form-controls">
+                    <label for="textToHash">texto&nbsp;resumido</label>
                     <textarea id="textToHash" form="hash-form" v-model="textToHash" rows="8" cols="80" style="text-align:left;"></textarea>
-                    <label for="textToHash">texto&nbsp;a&nbsp;resumir</label>
                 </div>
                 <div class="form-controls">
+                    <label for="header">cabecera</label>
+                    <textarea id="header" form="hash-form" v-model="header" rows="2" cols="80"></textarea>
+                    <label for="hashedText">texto&nbsp;a&nbsp;resumir</label>
                     <textarea id="hashedText" form="hash-form" v-model="hashedText" rows="8" cols="80"></textarea>
-                    <label for="hashedText">texto&nbsp;resumido</label>
+                    <label for="signature">firma:</label>
+                    <input id="signature" form="hash-form" v-model="signature"/>
+                    <label for="calculated_signature">&nbsp;c&aacute;lculo&nbsp;firma:</label>
+                    <input id="calculated_signature" form="hash-form" v-model="calculated_signature"/>
                 </div>
                 <div class="form-controls">
                     <input form="hash-form" type="submit" value="expandir" v-on:click="decodeToken()">
-                    <input form="hash-form" type="submit" value="resumir" v-on:click="requestJWT()">
+                    <input form="hash-form" type="submit" value="resumir" v-on:click="encodeJWT()">
                     <input form="hash-form" type="submit" value="validar" v-on:click="requestJWT()">
                 </div>
             </form>
         </div>
-        </span>
     </div>
 </template>
 <style scoped>

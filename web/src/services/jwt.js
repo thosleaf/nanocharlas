@@ -1,9 +1,45 @@
-export function parseJwt (token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+import jwtDecode from 'jwt-decode';
 
-    return JSON.parse(jsonPayload);
-}
+export function parseJwtHeader(token) {
+  var result;
+
+  if ((token)) {
+    try {
+      var decoded = jwtDecode(token, { header: true })
+      result = JSON.stringify(decoded);
+    } catch (err) {
+      result = 'invalid JWT Token';
+    }
+  }
+  return result;
+};
+export function calculateSignature(data) {
+
+  result = HMACSHA256(
+    base64UrlEncode(header) + "." +
+    base64UrlEncode(payload),
+    secret)
+  return result;
+};
+export function extractSignature(token) {
+
+  var signature = token.split('.')[2];
+  if ((signature != null) && (signature != '')) {
+    return signature
+  } else {
+    return 'INVALID SIGNATURE'
+  }
+};
+export function parseJwtBody(token) {
+  var result;
+
+  if ((token)) {
+    try {
+      var decoded = jwtDecode(token)
+      result = JSON.stringify(decoded);
+    } catch (err) {
+      result = 'invalid JWT Token';
+    }
+  }
+  return result;
+};
