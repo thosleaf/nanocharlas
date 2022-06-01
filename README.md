@@ -41,8 +41,6 @@ Estas prácticas se han ejecutado utilizando nodeJs v16.13.1 y npm v8.3.0
 
 > git clone https://github.com/thosleaf/nanocharlas.git
 
-
-
 ## Recursos de ayuda
 
 En este recurso se explica de forma bastante sencilla cómo implementar un sitio Vue sin demasiados conocimientos de inicio.
@@ -54,3 +52,12 @@ npm scripts: Qué son y cómo se utilizan?
 https://frontendguruji.com/blog/how-to-setup-a-vue-js-project-from-scratch-without-vue-cli/
 installing and setting up Vue3 from scratch
 (prestad atención a los ficheros del repo para entender completamente los cambios, algunos son distintos del tutorial)
+
+# TODO
+## pequeños
+- Mover al repo de UST
+
+## grandes
+- separar por "ramas" o "repos" cada nanocharla/práctica.
+- práctica de Vue
+- Práctica de node.js
