@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config;
 const express = require('express');
 const path = require('path');
 const app = express(),
@@ -5,25 +7,29 @@ const app = express(),
       port = 3080;
 
 // place holder for the data
-const users = [];
+const files = [];
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../my-app/build')));
+app.use(express.static(path.join(__dirname, '../web/dist')));
 
-app.get('/api/users', (req, res) => {
-  console.log('api/users called!')
-  res.json(users);
+app.get('/api/jwt', (req, res) => {
+  console.log(`api/jwt called!\r\nrequest: ${ JSON.stringify(req) }`)
+  res.json(req);
 });
 
-app.post('/api/user', (req, res) => {
-  const user = req.body.user;
-  console.log('Adding user:::::', user);
-  users.push(user);
-  res.json("user added");
+app.post('/api/verify', (req, res) => {
+  const file = req.body.file;
+  console.log('Verify invoked', file);
+  files.push(file);
+  res.json("file added");
 });
 
 app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
+  res.json({
+    rout: '/',
+    authentication: false
+  });
+  //res.sendFile(path.join(__dirname, '../web/dist/index.html'));
 });
 
 app.listen(port, () => {

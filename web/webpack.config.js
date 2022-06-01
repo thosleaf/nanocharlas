@@ -60,7 +60,7 @@ module.exports = {
         new MiniCssExtractPlugin(),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template:"./src/index.html"
+            template:"./src/index.html",
         }),
     ],
     optimization: {

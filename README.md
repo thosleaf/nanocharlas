@@ -11,6 +11,15 @@ Las pruebas se han efectuado utilizando:
 
 Pequeñas demostraciones del uso de la criptografía usando nodeJS y Vue
 
+### certificado ssh para github 
+
+Este es un ejemplo de uso de la criptografía de clave asimétrica, en el que cedemos a github nuestra clave pública para que pueda "confiar" en que aquellas conexiones hechas con ssh provienen de nosotras.
+https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Este también es muy interesante:
+https://www.section.io/engineering-education/using-multiple-ssh-keys-for-multiple-github-accounts/
+
+
 ### server
 
 Despliegue de los recursos API a explotar.
@@ -32,8 +41,6 @@ Estas prácticas se han ejecutado utilizando nodeJs v16.13.1 y npm v8.3.0
 
 > git clone https://github.com/thosleaf/nanocharlas.git
 
-
-
 ## Recursos de ayuda
 
 En este recurso se explica de forma bastante sencilla cómo implementar un sitio Vue sin demasiados conocimientos de inicio.
@@ -44,3 +51,13 @@ npm scripts: Qué son y cómo se utilizan?
 
 https://frontendguruji.com/blog/how-to-setup-a-vue-js-project-from-scratch-without-vue-cli/
 installing and setting up Vue3 from scratch
+(prestad atención a los ficheros del repo para entender completamente los cambios, algunos son distintos del tutorial)
+
+# TODO
+## pequeños
+- Mover al repo de UST
+
+## grandes
+- separar por "ramas" o "repos" cada nanocharla/práctica.
+- práctica de Vue
+- Práctica de node.js
